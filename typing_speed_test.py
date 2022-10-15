@@ -1,6 +1,7 @@
 import curses
 from curses import wrapper
 import time
+import random
 
 def start_screen(stdscr):
     stdscr.clear()
@@ -23,8 +24,8 @@ def display_text(stdscr, target, current, wpm=0):
 
 def load_text():
     with open("text.txt", "r") as f:
-        line = f.readline()
-        return random.choice(lines).strip()
+        line = f.readlines()
+        return random.choice(line).strip()
 
 def wpm_test(stdscr):
     target_text = load_text()
